@@ -3,16 +3,20 @@
 import { PackageOpen } from "lucide-react";
 import type { Product } from "@/entities/product/model/product.type";
 import { useGetProductsModel } from "../model/use-get-products.model";
-import { useDeleteProductModel } from "../../delete-product/model/use-delete-product.model";
 import { ProductCard } from "@/entities/product/ui/product-card";
 
 interface ProductListProps {
   onEdit: (product: Product) => void;
+  onDelete: (id: number) => void;
+  isDeleting?: boolean;
 }
 
-export function ProductList({ onEdit }: ProductListProps) {
+export function ProductList({
+  onEdit,
+  onDelete,
+  isDeleting = false,
+}: ProductListProps) {
   const { products = [], isLoading } = useGetProductsModel();
-  const { onDeleteClick, isPending: isDeleting } = useDeleteProductModel();
 
   if (isLoading) {
     return (
@@ -49,7 +53,7 @@ export function ProductList({ onEdit }: ProductListProps) {
           key={product.id}
           product={product}
           onEdit={onEdit}
-          onDelete={onDeleteClick}
+          onDelete={onDelete}
           isDeleting={isDeleting}
         />
       ))}

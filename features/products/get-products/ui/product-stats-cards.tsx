@@ -1,13 +1,11 @@
 "use client";
 
 import { TrendingUp, DollarSign, Layers } from "lucide-react";
-import { useGetProductsStatsModel } from "../model/use-get-products-stats.model";
 import { useGetProductsModel } from "../../get-products/model/use-get-products.model";
 import { StatCard } from "@/entities/product/ui/product-stats-card";
 
 export function ProductStatsCards() {
-  const { isLoading } = useGetProductsModel();
-  const { stats } = useGetProductsStatsModel();
+  const { isLoading, stats } = useGetProductsModel();
 
   return (
     <div className="grid grid-cols-1 gap-4 px-6 py-5 sm:grid-cols-3">

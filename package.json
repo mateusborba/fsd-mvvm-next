@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "carousel:code-svg": "node docs/linkedin-fsd-carousel/scripts/generate-code-slides-svg.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.3.0",
