@@ -1,13 +1,6 @@
-"use client"
+"use client";
 
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { PackagePlus } from "lucide-react"
-import type { CreateProductDto } from "@/entities/product/model/product.type"
-import {
-  productFormSchema,
-  type ProductFormValues,
-} from "@/entities/product/model/product.schema"
+import { PackagePlus } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -15,46 +8,31 @@ import {
   DialogTitle,
   DialogDescription,
   DialogFooter,
-} from "@/shared/ui/dialog"
-import { Button } from "@/shared/ui/button"
-import { Input } from "@/shared/ui/input"
-import { Label } from "@/shared/ui/label"
-import { Textarea } from "@/shared/ui/textarea"
+} from "@/shared/ui/dialog";
+import { Button } from "@/shared/ui/button";
+import { Input } from "@/shared/ui/input";
+import { Label } from "@/shared/ui/label";
+import { Textarea } from "@/shared/ui/textarea";
+import { useCreateProductModel } from "../model/use-create-product.model";
 
 interface CreateProductDialogProps {
-  open: boolean
-  onOpenChange: (open: boolean) => void
-  onSubmit: (dto: CreateProductDto) => void
-  isPending?: boolean
+  open: boolean;
+  onClose: () => void;
 }
 
 export function CreateProductDialog({
   open,
-  onOpenChange,
-  onSubmit,
-  isPending = false,
+  onClose,
 }: CreateProductDialogProps) {
   const {
+    isCreatingProduct,
     register,
     handleSubmit,
-    reset,
-    formState: { errors, isValid },
-  } = useForm<ProductFormValues>({
-    resolver: zodResolver(productFormSchema),
-    mode: "onChange",
-  })
-
-  function onFormSubmit(values: ProductFormValues) {
-    onSubmit(values as CreateProductDto)
-    reset()
-  }
-
-  function handleOpenChange(value: boolean) {
-    if (!isPending) {
-      reset()
-      onOpenChange(value)
-    }
-  }
+    onFormSubmit,
+    handleOpenChange,
+    errors,
+    isValid,
+  } = useCreateProductModel(onClose);
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
@@ -73,7 +51,10 @@ export function CreateProductDialog({
           </div>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit(onFormSubmit)} className="flex flex-col gap-4">
+        <form
+          onSubmit={handleSubmit(onFormSubmit)}
+          className="flex flex-col gap-4"
+        >
           <div className="flex flex-col gap-1.5">
             <Label htmlFor="create-name">
               Nome <span className="text-destructive">*</span>
@@ -118,19 +99,24 @@ export function CreateProductDialog({
 
           <DialogFooter className="pt-2">
             <Button
+              size="lg"
               type="button"
               variant="outline"
               onClick={() => handleOpenChange(false)}
-              disabled={isPending}
+              disabled={isCreatingProduct}
             >
               Cancelar
             </Button>
-            <Button type="submit" disabled={!isValid || isPending}>
-              {isPending ? "Criando..." : "Criar Produto"}
+            <Button
+              size="lg"
+              type="submit"
+              disabled={!isValid || isCreatingProduct}
+            >
+              {isCreatingProduct ? "Criando..." : "Criar Produto"}
             </Button>
           </DialogFooter>
         </form>
       </DialogContent>
     </Dialog>
-  )
+  );
 }

@@ -48,7 +48,7 @@ export function ProductCard({
   }).format(product.price);
 
   return (
-    <Card className="group relative flex flex-col border overflow-hidden ring-0 transition-shadow hover:shadow-md">
+    <Card className="group relative shadow-sm flex flex-col border overflow-hidden ring-0 transition-shadow hover:shadow-md">
       {/* Colored top strip */}
       <div
         className={cn(

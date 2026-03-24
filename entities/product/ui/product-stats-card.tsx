@@ -15,7 +15,7 @@ export function StatCard({
   isLoading,
 }: StatsCardProps) {
   return (
-    <Card>
+    <Card className="shadow-sm">
       <CardContent className="flex items-center gap-4 py-4">
         <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
           <Icon className="size-5 text-primary" />

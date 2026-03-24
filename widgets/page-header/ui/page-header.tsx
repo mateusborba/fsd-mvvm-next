@@ -1,19 +1,12 @@
-import { Button } from "@/shared/ui/button";
-import { Package, Plus } from "lucide-react";
+import { Package } from "lucide-react";
 
 type PageHeaderProps = {
   title: string;
   description?: string;
-  action: (openDrawer: boolean) => void;
-  actionLabel?: string;
+  action?: React.ReactNode;
 };
 
-export const PageHeader = ({
-  title,
-  description,
-  action,
-  actionLabel,
-}: PageHeaderProps) => {
+export const PageHeader = ({ title, description, action }: PageHeaderProps) => {
   return (
     <div className="flex items-center justify-between px-6 py-5">
       <div className="flex items-center gap-3">
@@ -26,10 +19,7 @@ export const PageHeader = ({
         </div>
       </div>
 
-      <Button onClick={() => action(true)} size="lg">
-        <Plus />
-        {actionLabel}
-      </Button>
+      {action}
     </div>
   );
 };

@@ -9,7 +9,8 @@
       "Bash(pnpm build:*)",
       "Bash(ls \"C:/Users/mundo/projects/my-app/app/\\(features\\)/dashboard/\")",
       "Bash(grep:*)",
-      "WebFetch(domain:www.codecentric.de)"
+      "WebFetch(domain:www.codecentric.de)",
+      "Bash(npx tsc:*)"
     ]
   }
 }

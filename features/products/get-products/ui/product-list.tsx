@@ -2,21 +2,28 @@
 
 import { PackageOpen } from "lucide-react";
 import type { Product } from "@/entities/product/model/product.type";
-import { ProductCard } from "./product-card";
+import { useGetProductsModel } from "../model/use-get-products.model";
+import { useDeleteProductModel } from "../../delete-product/model/use-delete-product.model";
+import { ProductCard } from "@/entities/product/ui/product-card";
 
 interface ProductListProps {
-  products: Product[];
   onEdit: (product: Product) => void;
-  onDelete: (id: number) => void;
-  deletingId?: number | null;
 }
 
-export function ProductList({
-  products,
-  onEdit,
-  onDelete,
-  deletingId,
-}: ProductListProps) {
+export function ProductList({ onEdit }: ProductListProps) {
+  const { products = [], isLoading } = useGetProductsModel();
+  const { onDeleteClick, isPending: isDeleting } = useDeleteProductModel();
+
+  if (isLoading) {
+    return (
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <div key={i} className="h-52 animate-pulse rounded-xl bg-muted" />
+        ))}
+      </div>
+    );
+  }
+
   if (products.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center gap-3 rounded-xl border border-dashed py-16 text-center">
@@ -42,8 +49,8 @@ export function ProductList({
           key={product.id}
           product={product}
           onEdit={onEdit}
-          onDelete={onDelete}
-          isDeleting={deletingId === product.id}
+          onDelete={onDeleteClick}
+          isDeleting={isDeleting}
         />
       ))}
     </div>

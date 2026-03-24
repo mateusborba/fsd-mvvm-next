@@ -1,18 +1,48 @@
-import { Product } from "@/entities/product/model/product.type";
+import { CreateProductDto } from "@/entities/product/model/product.type";
 import { useCreateProduct } from "../api/use-create-product";
+import {
+  productFormSchema,
+  ProductFormValues,
+} from "@/entities/product/model/product.schema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 
-export const useCreateProductModel = ({
-  setIsCreateOpen,
-}: {
-  setIsCreateOpen: (state: boolean) => void;
-}) => {
+export const useCreateProductModel = (onClose: () => void) => {
   const { mutateAsync, isPending: isCreatingProduct } = useCreateProduct();
 
-  const onCreateSubmit = async (dto: Omit<Product, "id">) => {
-    await mutateAsync(dto, {
-      onSuccess: () => setIsCreateOpen(false),
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isValid },
+  } = useForm<ProductFormValues>({
+    resolver: zodResolver(productFormSchema),
+    mode: "onChange",
+  });
+
+  const onFormSubmit = async (values: ProductFormValues) => {
+    await mutateAsync(values as CreateProductDto, {
+      onSuccess: () => {
+        reset();
+        onClose();
+      },
     });
   };
 
-  return { onCreateSubmit, isCreatingProduct };
+  const handleOpenChange = (value: boolean) => {
+    if (!isCreatingProduct) {
+      reset();
+      if (!value) onClose();
+    }
+  };
+
+  return {
+    isCreatingProduct,
+    register,
+    handleSubmit,
+    onFormSubmit,
+    handleOpenChange,
+    errors,
+    isValid,
+  };
 };

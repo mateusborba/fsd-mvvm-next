@@ -1,17 +1,6 @@
 "use client";
-
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { PencilLine } from "lucide-react";
-import type {
-  Product,
-  UpdateProductDto,
-} from "@/entities/product/model/product.type";
-import {
-  productFormSchema,
-  type ProductFormValues,
-} from "@/entities/product/model/product.schema";
+import type { Product } from "@/entities/product/model/product.type";
 import {
   Sheet,
   SheetContent,
@@ -24,50 +13,27 @@ import { Input } from "@/shared/ui/input";
 import { Label } from "@/shared/ui/label";
 import { Textarea } from "@/shared/ui/textarea";
 import { Separator } from "@/shared/ui/separator";
+import { useUpdateProductDrawerModel } from "../model/use-update-product-drawer.model";
 
 interface EditProductDrawerProps {
   product: Product | null;
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
-  onSubmit: (id: number, dto: UpdateProductDto) => void;
-  isPending?: boolean;
+  onClose: () => void;
 }
 
 export function EditProductDrawer({
   product,
-  open,
-  onOpenChange,
-  onSubmit,
-  isPending = false,
+  onClose,
 }: EditProductDrawerProps) {
   const {
+    open,
     register,
     handleSubmit,
-    reset,
-    formState: { errors, isValid },
-  } = useForm<ProductFormValues>({
-    resolver: zodResolver(productFormSchema),
-    mode: "onChange",
-  });
-
-  useEffect(() => {
-    if (product) {
-      reset({
-        name: product.name,
-        description: product.description,
-        price: product.price,
-      });
-    }
-  }, [product, reset]);
-
-  function onFormSubmit(values: ProductFormValues) {
-    if (!product) return;
-    onSubmit(product.id, values as UpdateProductDto);
-  }
-
-  function handleOpenChange(value: boolean) {
-    if (!isPending) onOpenChange(value);
-  }
+    errors,
+    isValid,
+    onFormSubmit,
+    handleOpenChange,
+    isPending,
+  } = useUpdateProductDrawerModel({ product, onClose });
 
   return (
     <Sheet open={open} onOpenChange={handleOpenChange}>
@@ -147,10 +113,11 @@ export function EditProductDrawer({
           <div className="shrink-0 border-t px-5 py-4">
             <Separator className="mb-4" />
             <div className="flex flex-col gap-2">
-              <Button type="submit" disabled={!isValid || isPending}>
+              <Button type="submit" disabled={!isValid || isPending} size="lg">
                 {isPending ? "Salvando..." : "Salvar Alterações"}
               </Button>
               <Button
+                size="lg"
                 type="button"
                 variant="outline"
                 onClick={() => handleOpenChange(false)}
