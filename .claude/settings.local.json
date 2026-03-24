@@ -5,7 +5,11 @@
       "Bash(ls C:/Users/mundo/projects/my-app/app/\\\\\\(features\\\\\\)/dashboard)",
       "Bash(cat C:/Users/mundo/projects/my-app/app/\\\\\\(features\\\\\\)/dashboard/page.tsx)",
       "Bash(pnpm add:*)",
-      "Bash(pnpm dlx:*)"
+      "Bash(pnpm dlx:*)",
+      "Bash(pnpm build:*)",
+      "Bash(ls \"C:/Users/mundo/projects/my-app/app/\\(features\\)/dashboard/\")",
+      "Bash(grep:*)",
+      "WebFetch(domain:www.codecentric.de)"
     ]
   }
 }

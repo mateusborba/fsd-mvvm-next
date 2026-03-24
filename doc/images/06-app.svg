@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r="0.8" fill="#1e293b"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+
+  <!-- ===== LEFT PANEL ===== -->
+
+  <!-- Layer badge -->
+  <rect x="48" y="48" width="80" height="28" rx="14" fill="#ec489920" stroke="#ec489940" stroke-width="1"/>
+  <text x="88" y="67" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600" fill="#ec4899">app/</text>
+
+  <!-- Title -->
+  <text x="48" y="118" font-family="Inter, system-ui, sans-serif" font-size="36" font-weight="800" fill="#f1f5f9">As Rotas</text>
+  <text x="48" y="160" font-family="Inter, system-ui, sans-serif" font-size="36" font-weight="800" fill="#ec4899">Next.js</text>
+
+  <!-- Divider -->
+  <line x1="48" y1="178" x2="280" y2="178" stroke="#ec4899" stroke-width="2"/>
+
+  <!-- Responsibility -->
+  <text x="48" y="210" font-family="Inter, system-ui, sans-serif" font-size="15" fill="#94a3b8">Paginas sao apenas pontos</text>
+  <text x="48" y="232" font-family="Inter, system-ui, sans-serif" font-size="15" fill="#94a3b8">de entrada. Zero logica.</text>
+
+  <!-- Structure -->
+  <text x="48" y="278" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#64748b">ESTRUTURA</text>
+
+  <rect x="48" y="292" width="6" height="22" rx="3" fill="#ec4899"/>
+  <text x="64" y="308" font-family="'Courier New', Courier, monospace" font-size="13" font-weight="600" fill="#f1f5f9">app/(features)/dashboard/</text>
+  <text x="64" y="328" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#64748b">page.tsx — renderiza o widget</text>
+
+  <rect x="48" y="346" width="6" height="22" rx="3" fill="#ec4899"/>
+  <text x="64" y="362" font-family="'Courier New', Courier, monospace" font-size="13" font-weight="600" fill="#f1f5f9">app/(features)/layout.tsx</text>
+  <text x="64" y="382" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#64748b">renderiza o AppLayout widget</text>
+
+  <rect x="48" y="400" width="6" height="22" rx="3" fill="#ec4899"/>
+  <text x="64" y="416" font-family="'Courier New', Courier, monospace" font-size="13" font-weight="600" fill="#f1f5f9">app/providers/</text>
+  <text x="64" y="436" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#64748b">query-provider.tsx — setup do QueryClient</text>
+
+  <!-- Why this is great -->
+  <text x="48" y="476" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#64748b">POR QUE ISSO E PODEROSO</text>
+  <text x="48" y="498" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#94a3b8">A pagina nao precisa saber nada sobre</text>
+  <text x="48" y="518" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#94a3b8">produtos, queries ou estado. Isso fica</text>
+  <text x="48" y="538" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#94a3b8">encapsulado no widget.</text>
+
+  <!-- Rule box -->
+  <rect x="48" y="560" width="460" height="40" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="68" y="578" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#94a3b8">Se a pagina tem mais de ~10 linhas, algo esta errado.</text>
+
+  <!-- Vertical divider -->
+  <line x1="560" y1="40" x2="560" y2="590" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- ===== RIGHT PANEL — CODE ===== -->
+  <rect x="580" y="48" width="580" height="534" rx="10" fill="#1e293b"/>
+  <rect x="580" y="48" width="580" height="38" rx="10" fill="#0f172a"/>
+  <rect x="580" y="72" width="580" height="14" fill="#0f172a"/>
+  <circle cx="608" cy="67" r="5" fill="#ef4444" fill-opacity="0.7"/>
+  <circle cx="628" cy="67" r="5" fill="#f59e0b" fill-opacity="0.7"/>
+  <circle cx="648" cy="67" r="5" fill="#10b981" fill-opacity="0.7"/>
+  <text x="672" y="71" font-family="'Courier New', Courier, monospace" font-size="12" fill="#475569">app/(features)/dashboard/page.tsx</text>
+
+  <!-- "The beautiful 5-liner" -->
+  <text x="606" y="130" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#475569">— a pagina inteira —</text>
+
+  <text font-family="'Courier New', Courier, monospace" font-size="15" xml:space="preserve">
+    <tspan x="606" y="168" fill="#818cf8">import </tspan><tspan fill="#e2e8f0">{ ProductDashboardWidget } from</tspan>
+    <tspan x="606" dy="22" fill="#fbbf24">  "@/widgets/product-dashboard/ui/product-dashboard"</tspan>
+
+    <tspan x="606" dy="38" fill="#818cf8">export default function </tspan><tspan fill="#60a5fa">DashboardPage</tspan><tspan fill="#e2e8f0">() {</tspan>
+    <tspan x="606" dy="24" fill="#818cf8">  return </tspan><tspan fill="#e2e8f0">&lt;</tspan><tspan fill="#34d399">ProductDashboardWidget </tspan><tspan fill="#e2e8f0">/&gt;</tspan>
+    <tspan x="606" dy="24" fill="#e2e8f0">}</tspan>
+  </text>
+
+  <!-- Callout: 5 linhas -->
+  <rect x="598" y="320" width="548" height="90" rx="8" fill="#ec489910" stroke="#ec489930" stroke-width="1"/>
+  <text x="872" y="352" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" fill="#f1f5f9">Isso e tudo que uma pagina</text>
+  <text x="872" y="374" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" fill="#f1f5f9">precisa ter. 5 linhas.</text>
+  <text x="872" y="398" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#ec4899">A logica vive nas camadas abaixo.</text>
+
+  <!-- Flow diagram in the rest of the right panel -->
+  <text x="872" y="456" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#64748b">FLUXO DE CHAMADAS</text>
+
+  <rect x="720" y="472" width="300" height="32" rx="6" fill="#ec489920" stroke="#ec489940" stroke-width="1"/>
+  <text x="870" y="493" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="13" fill="#ec4899">app/  DashboardPage</text>
+
+  <text x="870" y="524" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" fill="#334155">↓  renderiza</text>
+
+  <rect x="720" y="532" width="300" height="32" rx="6" fill="#3b82f620" stroke="#3b82f640" stroke-width="1"/>
+  <text x="870" y="553" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="13" fill="#3b82f6">widgets/  ProductDashboard</text>
+
+  <!-- Footer -->
+  <text x="600" y="615" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#334155">Feature-Sliced Design  ·  Camada 5 de 5  ·  app/</text>
+</svg>

@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r="0.8" fill="#1e293b"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+
+  <!-- ===== LEFT PANEL ===== -->
+
+  <!-- Layer badge -->
+  <rect x="48" y="48" width="96" height="28" rx="14" fill="#6366f120" stroke="#6366f140" stroke-width="1"/>
+  <text x="96" y="67" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600" fill="#818cf8">shared/</text>
+
+  <!-- Title -->
+  <text x="48" y="118" font-family="Inter, system-ui, sans-serif" font-size="36" font-weight="800" fill="#f1f5f9">A Base</text>
+  <text x="48" y="160" font-family="Inter, system-ui, sans-serif" font-size="36" font-weight="800" fill="#6366f1">Reutilizavel</text>
+
+  <!-- Divider -->
+  <line x1="48" y1="178" x2="300" y2="178" stroke="#6366f1" stroke-width="2"/>
+
+  <!-- Responsibility -->
+  <text x="48" y="210" font-family="Inter, system-ui, sans-serif" font-size="15" fill="#94a3b8">Nao conhece nenhuma regra</text>
+  <text x="48" y="232" font-family="Inter, system-ui, sans-serif" font-size="15" fill="#94a3b8">de negocio do projeto.</text>
+
+  <!-- What it contains -->
+  <text x="48" y="278" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#64748b">O QUE VIVE AQUI</text>
+
+  <!-- Item 1 -->
+  <rect x="48" y="292" width="6" height="22" rx="3" fill="#6366f1"/>
+  <text x="64" y="308" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="#f1f5f9">shared/ui/</text>
+  <text x="64" y="328" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#64748b">Button, Card, Input, Badge, Sheet...</text>
+
+  <!-- Item 2 -->
+  <rect x="48" y="348" width="6" height="22" rx="3" fill="#6366f1"/>
+  <text x="64" y="364" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="#f1f5f9">shared/api/http-client/</text>
+  <text x="64" y="384" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#64748b">Interface IHttpClient + adapters (fetch, axios)</text>
+
+  <!-- Item 3 -->
+  <rect x="48" y="404" width="6" height="22" rx="3" fill="#6366f1"/>
+  <text x="64" y="420" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="#f1f5f9">shared/lib/utils.ts</text>
+  <text x="64" y="440" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#64748b">cn(), formatters, helpers genericos</text>
+
+  <!-- Rule box -->
+  <rect x="48" y="478" width="440" height="72" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="68" y="502" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#f59e0b">Regra:</text>
+  <text x="68" y="522" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#94a3b8">shared/ nao pode importar de entities/,</text>
+  <text x="68" y="540" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#94a3b8">features/ ou widgets/. Apenas libs externas.</text>
+
+  <!-- Vertical divider -->
+  <line x1="560" y1="40" x2="560" y2="590" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- ===== RIGHT PANEL — CODE ===== -->
+
+  <!-- Code block background -->
+  <rect x="580" y="48" width="580" height="534" rx="10" fill="#1e293b"/>
+
+  <!-- Title bar -->
+  <rect x="580" y="48" width="580" height="38" rx="10" fill="#0f172a"/>
+  <rect x="580" y="72" width="580" height="14" fill="#0f172a"/>
+
+  <!-- Window dots -->
+  <circle cx="608" cy="67" r="5" fill="#ef4444" fill-opacity="0.7"/>
+  <circle cx="628" cy="67" r="5" fill="#f59e0b" fill-opacity="0.7"/>
+  <circle cx="648" cy="67" r="5" fill="#10b981" fill-opacity="0.7"/>
+
+  <!-- File path -->
+  <text x="672" y="71" font-family="'Courier New', Courier, monospace" font-size="12" fill="#475569">shared/api/http-client/http-client.type.ts</text>
+
+  <!-- Code content -->
+  <text font-family="'Courier New', Courier, monospace" font-size="14.5" xml:space="preserve">
+    <tspan x="606" y="118" fill="#64748b">// Abstrai o mecanismo de requisicao HTTP</tspan>
+    <tspan x="606" dy="26" fill="#64748b">// Substitua fetch por axios sem mudar os consumers</tspan>
+
+    <tspan x="606" dy="36" fill="#818cf8">export type </tspan><tspan fill="#e2e8f0">HttpMethod =</tspan>
+    <tspan x="606" dy="22" fill="#fbbf24">  "GET" </tspan><tspan fill="#94a3b8">| </tspan><tspan fill="#fbbf24">"POST" </tspan><tspan fill="#94a3b8">| </tspan><tspan fill="#fbbf24">"PUT" </tspan><tspan fill="#94a3b8">| </tspan><tspan fill="#fbbf24">"PATCH" </tspan><tspan fill="#94a3b8">| </tspan><tspan fill="#fbbf24">"DELETE"</tspan>
+
+    <tspan x="606" dy="34" fill="#818cf8">export interface </tspan><tspan fill="#34d399">HttpRequest </tspan><tspan fill="#e2e8f0">{</tspan>
+    <tspan x="606" dy="22" fill="#e2e8f0">  type</tspan><tspan fill="#94a3b8">: </tspan><tspan fill="#34d399">HttpMethod</tspan>
+    <tspan x="606" dy="22" fill="#e2e8f0">  endpoint</tspan><tspan fill="#94a3b8">: </tspan><tspan fill="#34d399">string</tspan>
+    <tspan x="606" dy="22" fill="#e2e8f0">  params</tspan><tspan fill="#94a3b8">?: </tspan><tspan fill="#34d399">Record</tspan><tspan fill="#e2e8f0">&lt;</tspan><tspan fill="#34d399">string</tspan><tspan fill="#e2e8f0">, </tspan><tspan fill="#34d399">string </tspan><tspan fill="#94a3b8">| </tspan><tspan fill="#34d399">number</tspan><tspan fill="#e2e8f0">&gt;</tspan>
+    <tspan x="606" dy="22" fill="#e2e8f0">  body</tspan><tspan fill="#94a3b8">?: </tspan><tspan fill="#34d399">unknown</tspan>
+    <tspan x="606" dy="22" fill="#e2e8f0">  headers</tspan><tspan fill="#94a3b8">?: </tspan><tspan fill="#34d399">Record</tspan><tspan fill="#e2e8f0">&lt;</tspan><tspan fill="#34d399">string</tspan><tspan fill="#e2e8f0">, </tspan><tspan fill="#34d399">string</tspan><tspan fill="#e2e8f0">&gt;</tspan>
+    <tspan x="606" dy="22" fill="#e2e8f0">}</tspan>
+
+    <tspan x="606" dy="34" fill="#818cf8">export interface </tspan><tspan fill="#34d399">IHttpClient </tspan><tspan fill="#e2e8f0">{</tspan>
+    <tspan x="606" dy="22" fill="#e2e8f0">  request</tspan><tspan fill="#94a3b8">&lt;</tspan><tspan fill="#34d399">T</tspan><tspan fill="#94a3b8">&gt;</tspan><tspan fill="#e2e8f0">(req: </tspan><tspan fill="#34d399">HttpRequest</tspan><tspan fill="#e2e8f0">): </tspan><tspan fill="#34d399">Promise</tspan><tspan fill="#e2e8f0">&lt;</tspan><tspan fill="#34d399">T</tspan><tspan fill="#e2e8f0">&gt;</tspan>
+    <tspan x="606" dy="22" fill="#e2e8f0">}</tspan>
+
+    <tspan x="606" dy="42" fill="#64748b">// entities/ usa assim:</tspan>
+    <tspan x="606" dy="22" fill="#e2e8f0">httpClient.</tspan><tspan fill="#60a5fa">request</tspan><tspan fill="#e2e8f0">&lt;</tspan><tspan fill="#34d399">Product[]</tspan><tspan fill="#e2e8f0">&gt;({</tspan>
+    <tspan x="606" dy="22" fill="#e2e8f0">  type: </tspan><tspan fill="#fbbf24">"GET"</tspan><tspan fill="#e2e8f0">, endpoint: </tspan><tspan fill="#fbbf24">"/products"</tspan>
+    <tspan x="606" dy="22" fill="#e2e8f0">})</tspan>
+  </text>
+
+  <!-- Footer -->
+  <text x="600" y="615" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#334155">Feature-Sliced Design  ·  Camada 1 de 5  ·  shared/</text>
+</svg>

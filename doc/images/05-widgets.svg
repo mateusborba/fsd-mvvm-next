@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r="0.8" fill="#1e293b"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+
+  <!-- ===== LEFT PANEL ===== -->
+
+  <!-- Layer badge -->
+  <rect x="48" y="48" width="104" height="28" rx="14" fill="#3b82f620" stroke="#3b82f640" stroke-width="1"/>
+  <text x="100" y="67" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600" fill="#3b82f6">widgets/</text>
+
+  <!-- Title -->
+  <text x="48" y="118" font-family="Inter, system-ui, sans-serif" font-size="36" font-weight="800" fill="#f1f5f9">Composicao</text>
+  <text x="48" y="160" font-family="Inter, system-ui, sans-serif" font-size="36" font-weight="800" fill="#3b82f6">da UI</text>
+
+  <!-- Divider -->
+  <line x1="48" y1="178" x2="300" y2="178" stroke="#3b82f6" stroke-width="2"/>
+
+  <!-- Responsibility -->
+  <text x="48" y="210" font-family="Inter, system-ui, sans-serif" font-size="15" fill="#94a3b8">Combina multiplas features em</text>
+  <text x="48" y="232" font-family="Inter, system-ui, sans-serif" font-size="15" fill="#94a3b8">um bloco completo e independente.</text>
+
+  <!-- What it contains -->
+  <text x="48" y="278" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#64748b">WIDGETS DO PROJETO</text>
+
+  <rect x="48" y="292" width="6" height="22" rx="3" fill="#3b82f6"/>
+  <text x="64" y="308" font-family="'Courier New', Courier, monospace" font-size="13" font-weight="600" fill="#f1f5f9">product-dashboard/</text>
+  <text x="64" y="328" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#64748b">ui/product-dashboard.tsx</text>
+  <text x="64" y="346" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#64748b">model/use-product-dashboard.ts</text>
+
+  <rect x="48" y="364" width="6" height="22" rx="3" fill="#3b82f6"/>
+  <text x="64" y="380" font-family="'Courier New', Courier, monospace" font-size="13" font-weight="600" fill="#f1f5f9">app-layout/</text>
+  <text x="64" y="400" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#64748b">ui/app-layout.tsx</text>
+
+  <!-- How it works -->
+  <text x="48" y="440" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#64748b">PADRAO VIEWMODEL</text>
+  <text x="48" y="462" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#94a3b8">use-product-dashboard.ts agrega os</text>
+  <text x="48" y="482" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#94a3b8">4 hooks de features/ e expoe um</text>
+  <text x="48" y="502" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#94a3b8">objeto "vm" limpo para a View.</text>
+
+  <!-- Rule box -->
+  <rect x="48" y="526" width="460" height="54" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="68" y="548" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#f59e0b">Regra:</text>
+  <text x="68" y="568" font-family="Inter, system-ui, sans-serif" font-size="13" fill="#94a3b8">A View (JSX) recebe o vm e so renderiza. Sem logica.</text>
+
+  <!-- Vertical divider -->
+  <line x1="560" y1="40" x2="560" y2="590" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- ===== RIGHT PANEL — CODE ===== -->
+  <rect x="580" y="48" width="580" height="534" rx="10" fill="#1e293b"/>
+  <rect x="580" y="48" width="580" height="38" rx="10" fill="#0f172a"/>
+  <rect x="580" y="72" width="580" height="14" fill="#0f172a"/>
+  <circle cx="608" cy="67" r="5" fill="#ef4444" fill-opacity="0.7"/>
+  <circle cx="628" cy="67" r="5" fill="#f59e0b" fill-opacity="0.7"/>
+  <circle cx="648" cy="67" r="5" fill="#10b981" fill-opacity="0.7"/>
+  <text x="672" y="71" font-family="'Courier New', Courier, monospace" font-size="12" fill="#475569">widgets/product-dashboard/model/use-product-dashboard.ts</text>
+
+  <!-- Code -->
+  <text font-family="'Courier New', Courier, monospace" font-size="14" xml:space="preserve">
+    <tspan x="606" y="116" fill="#64748b">"use client"</tspan>
+
+    <tspan x="606" dy="28" fill="#64748b">// Importa dos hooks de features/ (nunca da entity direta)</tspan>
+    <tspan x="606" dy="22" fill="#818cf8">import </tspan><tspan fill="#e2e8f0">{ useGetProducts }   from </tspan><tspan fill="#fbbf24">"@/features/product/api/..."</tspan>
+    <tspan x="606" dy="22" fill="#818cf8">import </tspan><tspan fill="#e2e8f0">{ useCreateProduct } from </tspan><tspan fill="#fbbf24">"@/features/product/api/..."</tspan>
+    <tspan x="606" dy="22" fill="#818cf8">import </tspan><tspan fill="#e2e8f0">{ useUpdateProduct } from </tspan><tspan fill="#fbbf24">"@/features/product/api/..."</tspan>
+    <tspan x="606" dy="22" fill="#818cf8">import </tspan><tspan fill="#e2e8f0">{ useDeleteProduct } from </tspan><tspan fill="#fbbf24">"@/features/product/api/..."</tspan>
+
+    <tspan x="606" dy="30" fill="#818cf8">export function </tspan><tspan fill="#60a5fa">useProductDashboard</tspan><tspan fill="#e2e8f0">() {</tspan>
+    <tspan x="606" dy="22" fill="#64748b">  // Agrega todos os hooks de features num so lugar</tspan>
+    <tspan x="606" dy="22" fill="#818cf8">  const </tspan><tspan fill="#e2e8f0">{ data: products </tspan><tspan fill="#94a3b8">= </tspan><tspan fill="#e2e8f0">[], isLoading } </tspan><tspan fill="#94a3b8">= </tspan><tspan fill="#60a5fa">useGetProducts</tspan><tspan fill="#e2e8f0">()</tspan>
+    <tspan x="606" dy="22" fill="#818cf8">  const </tspan><tspan fill="#e2e8f0">createProduct </tspan><tspan fill="#94a3b8">= </tspan><tspan fill="#60a5fa">useCreateProduct</tspan><tspan fill="#e2e8f0">()</tspan>
+    <tspan x="606" dy="22" fill="#818cf8">  const </tspan><tspan fill="#e2e8f0">updateProduct </tspan><tspan fill="#94a3b8">= </tspan><tspan fill="#60a5fa">useUpdateProduct</tspan><tspan fill="#e2e8f0">()</tspan>
+    <tspan x="606" dy="22" fill="#818cf8">  const </tspan><tspan fill="#e2e8f0">deleteProduct </tspan><tspan fill="#94a3b8">= </tspan><tspan fill="#60a5fa">useDeleteProduct</tspan><tspan fill="#e2e8f0">()</tspan>
+
+    <tspan x="606" dy="28" fill="#64748b">  // Estado de UI local do widget</tspan>
+    <tspan x="606" dy="22" fill="#818cf8">  const </tspan><tspan fill="#e2e8f0">[isCreateOpen, setIsCreateOpen] </tspan><tspan fill="#94a3b8">= </tspan><tspan fill="#60a5fa">useState</tspan><tspan fill="#e2e8f0">(</tspan><tspan fill="#818cf8">false</tspan><tspan fill="#e2e8f0">)</tspan>
+
+    <tspan x="606" dy="28" fill="#64748b">  // Dados derivados (View recebe pronto)</tspan>
+    <tspan x="606" dy="22" fill="#818cf8">  const </tspan><tspan fill="#e2e8f0">stats </tspan><tspan fill="#94a3b8">= </tspan><tspan fill="#e2e8f0">{ count: products.length, totalValue: </tspan><tspan fill="#60a5fa">fmt</tspan><tspan fill="#e2e8f0">(...) }</tspan>
+
+    <tspan x="606" dy="28" fill="#818cf8">  return </tspan><tspan fill="#e2e8f0">{ products, isLoading, stats, isCreateOpen, ... }</tspan>
+    <tspan x="606" dy="22" fill="#e2e8f0">}</tspan>
+  </text>
+
+  <!-- Footer -->
+  <text x="600" y="615" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#334155">Feature-Sliced Design  ·  Camada 4 de 5  ·  widgets/</text>
+</svg>
